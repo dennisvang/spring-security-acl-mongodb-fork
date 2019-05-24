@@ -55,6 +55,7 @@ import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
+import java.io.Serializable;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -65,6 +66,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
@@ -489,11 +491,11 @@ public class MongoDBAclServiceTest {
 	}
 
 	private void checkPermissions(Acl acl) {
-		Set<AccessControlEntry> permissions = new LinkedHashSet<>();
+		Set<Serializable> permissions = new LinkedHashSet<>();
 		Acl _parent = acl.getParentAcl();
 		if (acl.isEntriesInheriting()) {
 			while (null != _parent) {
-				permissions.addAll(_parent.getEntries());
+				permissions.addAll(_parent.getEntries().stream().map(e->e.getId()).collect(Collectors.toList()));
 				if (_parent.isEntriesInheriting()) {
 					_parent = _parent.getParentAcl();
 				}
