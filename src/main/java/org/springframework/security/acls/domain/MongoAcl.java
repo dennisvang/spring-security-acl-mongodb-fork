@@ -37,9 +37,9 @@ import java.util.List;
  * @author Roman Vottner
  * @since 4.3
  */
-@CompoundIndexes({
-		@CompoundIndex(name = "domainObject", def = "{'instanceId' : 1, 'className' : 1}")
-})
+//@CompoundIndexes({
+//		@CompoundIndex(name = "domainObject", def = "{'instanceId' : 1, 'className' : 1}")
+//})
 @Document(collection = "ACL")
 public class MongoAcl {
 	/**
@@ -62,7 +62,7 @@ public class MongoAcl {
 	/**
 	 * A reference to a parent ACL which may inherit permissions. Can be null
 	 **/
-	@Indexed
+	//TODO: WTF!@Indexed
 	private Serializable parentId = null;
 	/**
 	 * Defines whether to inherit permissions from parent ACL or not. If set to true permissions will be inherited from
