@@ -6,7 +6,7 @@
 
     <groupId>org.springframework.security</groupId>
     <artifactId>spring-security-acl-mongodb</artifactId>
-    <version>5.1.5-SNAPSHOT</version>
+    <version>${revision}${changelist}</version>
 
     <properties>
         <spring.version>5.1.5.RELEASE</spring.version>
@@ -19,6 +19,13 @@
             <url>http://repo.spring.io/milestone/</url>
         </repository>
     </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <url>https://toolshed.fair-dtls.surf-hosted.nl/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-acl -->
@@ -83,6 +90,25 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.5.1</version>
+                <executions>
+                    <execution>
+                        <id>default-deploy</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <serverId>nexus</serverId>
+                    <nexusUrl>https://toolshed.fair-dtls.surf-hosted.nl</nexusUrl>
+                    <skipStaging>true</skipStaging>
                 </configuration>
             </plugin>
         </plugins>
