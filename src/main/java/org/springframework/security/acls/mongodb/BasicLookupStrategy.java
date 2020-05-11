@@ -200,7 +200,7 @@ public class BasicLookupStrategy implements LookupStrategy {
 			types.add(domainObject.getType());
 		}
 		Criteria where = Criteria.where("instanceId").in(objectIds).and("className").in(types);
-		List<MongoAcl> foundAcls = mongoTemplate.find(query(where).with(new Sort(Sort.Direction.ASC, "instanceId", "permissions.position")), MongoAcl.class);
+		List<MongoAcl> foundAcls = mongoTemplate.find(query(where).with(Sort.by(Sort.Direction.ASC, "instanceId", "permissions.position")), MongoAcl.class);
 
 		Map<ObjectIdentity, Acl> resultMap = new HashMap<>();
 
