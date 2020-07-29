@@ -9,6 +9,11 @@
     <version>${revision}${changelist}</version>
 
     <properties>
+        <!-- Maven -->
+        <maven.compiler.source>14</maven.compiler.source>
+        <maven.compiler.target>14</maven.compiler.target>
+
+        <!-- Spring -->
         <spring.version>5.2.4.RELEASE</spring.version>
         <spring.data.version>2.2.7.RELEASE</spring.data.version>
     </properties>
