@@ -97,6 +97,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.6.1</version>
                 <configuration>
+                    <!-- TODO: use maven.compiler properties defined above (defined but not used...) -->
                     <source>14</source>
                     <target>14</target>
                 </configuration>
