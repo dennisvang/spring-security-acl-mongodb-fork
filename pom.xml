@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.springframework.security</groupId>
+    <groupId>com.github.fairdatateam</groupId>
     <artifactId>spring-security-acl-mongodb</artifactId>
     <version>${revision}${changelist}</version>
 
@@ -58,6 +58,7 @@
             <groupId>de.flapdoodle.embed</groupId>
             <artifactId>de.flapdoodle.embed.mongo</artifactId>
             <scope>test</scope>
+            <!-- TODO: upgrade to latest 4.x -->
             <version>2.2.0</version>
         </dependency>
         <!-- Spring test framework -->

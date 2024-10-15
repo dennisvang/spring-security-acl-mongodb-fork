@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.security.acls.mongodb;
+package com.github.fairdatateam.security.acls.mongodb;
 
 import com.mongodb.MongoClient;
 import org.junit.Test;
@@ -26,15 +26,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-import org.springframework.security.acls.dao.AclRepository;
+import com.github.fairdatateam.security.acls.dao.AclRepository;
 import org.springframework.security.acls.domain.AclAuthorizationStrategy;
 import org.springframework.security.acls.domain.AclAuthorizationStrategyImpl;
 import org.springframework.security.acls.domain.BasePermission;
 import org.springframework.security.acls.domain.ConsoleAuditLogger;
 import org.springframework.security.acls.domain.DefaultPermissionGrantingStrategy;
-import org.springframework.security.acls.domain.DomainObjectPermission;
-import org.springframework.security.acls.domain.MongoAcl;
-import org.springframework.security.acls.domain.MongoSid;
+import com.github.fairdatateam.security.acls.domain.DomainObjectPermission;
+import com.github.fairdatateam.security.acls.domain.MongoAcl;
+import com.github.fairdatateam.security.acls.domain.MongoSid;
 import org.springframework.security.acls.domain.ObjectIdentityImpl;
 import org.springframework.security.acls.domain.PrincipalSid;
 import org.springframework.security.acls.domain.SpringCacheBasedAclCache;

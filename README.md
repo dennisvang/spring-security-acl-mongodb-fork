@@ -11,7 +11,7 @@ This Spring Security ACL customization uses MongoDB as a database to look up acc
 ```
 {
     "_id" : "a285005a-a892-409a-be86-59877142aa17",
-    "_class" : "org.springframework.security.acls.domain.MongoAcl",
+    "_class" : "com.github.fairdatateam.security.acls.domain.MongoAcl",
     "className" : "sample.contact.Contact",
     "instanceId" : 6,
     "owner" : {
@@ -84,7 +84,7 @@ In order to make use of the MongoDB based ACL one has to declare its dependency 
 
 ```xml
 <dependency>
-    <groupId>org.springframework.security</groupId>
+    <groupId>com.github.fairdatateam</groupId>
     <artifactId>spring-security-acl-mongodb</artifactId>
     <version>4.2.3-SNAPSHOT</version>
 </dependency>
@@ -97,7 +97,7 @@ Note that the artifacts are not yet available on Maven Central. So please build 
 Via Gradle the dependency can be added by simply adding the following line to the .gradle file:
 
 ```groovy
-compile "org.springframework.security:spring-security-acl-mongodb:4.2.3-SNAPSHOT"
+compile "com.github.fairdatateam:spring-security-acl-mongodb:4.2.3-SNAPSHOT"
 ```
 
 Note that the artifacts are not yet available on Maven Central (or similar repositories). Hence build the project manually first before declaring the dependencies on this artifact.
@@ -193,7 +193,7 @@ Once the Mongo client is available and the template as well as the repository ar
 	</constructor-arg>
   </bean>
 
-  <bean id="lookupStrategy" class="org.springframework.security.acls.mongodb.BasicLookupStrategy">
+  <bean id="lookupStrategy" class="com.github.fairdatateam.security.acls.mongodb.BasicLookupStrategy">
 	<constructor-arg ref="mongoTemplate"/>
 	<constructor-arg ref="aclCache"/>
 	<constructor-arg>
