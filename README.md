@@ -189,7 +189,7 @@ Once the Mongo client is available and the template as well as the repository ar
 	</constructor-arg>
   </bean>
 
-  <bean id="lookupStrategy" class="org.springframework.security.acls.mongodb.BasicLookupStrategy">
+  <bean id="lookupStrategy" class="org.fairdatateam.security.acls.mongodb.BasicLookupStrategy">
 	<constructor-arg ref="mongoTemplate"/>
 	<constructor-arg ref="aclCache"/>
 	<constructor-arg>
@@ -206,7 +206,7 @@ Once the Mongo client is available and the template as well as the repository ar
 	</constructor-arg>
   </bean>
 
-  <bean id="aclService" class="org.springframework.security.acls.mongodb.MongoDBMutableAclService">
+  <bean id="aclService" class="org.fairdatateam.security.acls.mongodb.MongoDBMutableAclService">
 	<constructor-arg ref="lookupStrategy"/>
 	<constructor-arg ref="aclCache"/>
   </bean>
