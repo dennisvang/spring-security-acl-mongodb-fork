@@ -1,3 +1,7 @@
+# Background
+
+Background can be found here: https://github.com/spring-projects/spring-security/issues/4484
+
 # Spring Security ACL MongoDB
 
 Spring Security Access Control List (ACL) is a convenient way to grant user-based permission access on domain objects like i.e. a list of books or contacts. Spring Security by default manages ACL via 4 SQL tables which are joined together at lookup time per access on a domain object. While it makes use of caching internally to reduce the roundtrip to the database as much as possible, storing the data in a NoSQL database in a non-flat structure can further help reduce the overall overhead on the database.
