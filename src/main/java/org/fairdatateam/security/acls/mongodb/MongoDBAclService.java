@@ -17,8 +17,8 @@ package org.fairdatateam.security.acls.mongodb;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.acls.dao.AclRepository;
-import org.springframework.security.acls.domain.MongoAcl;
+import org.fairdatateam.security.acls.dao.AclRepository;
+import org.fairdatateam.security.acls.domain.MongoAcl;
 import org.springframework.security.acls.domain.ObjectIdentityImpl;
 import org.springframework.security.acls.jdbc.LookupStrategy;
 import org.springframework.security.acls.model.AccessControlEntry;

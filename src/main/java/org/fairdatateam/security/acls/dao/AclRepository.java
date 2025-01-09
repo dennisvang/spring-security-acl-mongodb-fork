@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.security.acls.dao;
+package org.fairdatateam.security.acls.dao;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.security.acls.domain.MongoAcl;
+import org.fairdatateam.security.acls.domain.MongoAcl;
 import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;

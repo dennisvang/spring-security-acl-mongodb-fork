@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.security.acls.domain;
+package org.fairdatateam.security.acls.domain;
 
 /**
  * Represents a security identity assignable to certain permissions in an access control list. The identity can either

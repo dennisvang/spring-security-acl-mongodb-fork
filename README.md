@@ -7,7 +7,7 @@ This Spring Security ACL customization uses MongoDB as a database to look up acc
 ```
 {
     "_id" : "a285005a-a892-409a-be86-59877142aa17",
-    "_class" : "org.springframework.security.acls.domain.MongoAcl",
+    "_class" : "org.fairdatateam.security.acls.domain.MongoAcl",
     "className" : "sample.contact.Contact",
     "instanceId" : 6,
     "owner" : {
@@ -144,7 +144,7 @@ On using XML based configuration a sample configuration can look like below
     <context:component-scan base-package="org.springframework.security.acls" />
 
     <!-- The Spring-Data-MongoDB Acl repository -->
-    <mongo:repositories base-package="org.springframework.security.acls.dao"/>
+    <mongo:repositories base-package="org.fairdatateam.security.acls.dao"/>
 </beans>
 ```
 
