@@ -145,7 +145,7 @@ On using XML based configuration a sample configuration can look like below
 
     <!-- Make the aclRepository bean instance available to inject -->
     <context:annotation-config />
-    <context:component-scan base-package="org.springframework.security.acls" />
+    <context:component-scan base-package="org.fairdatateam.security.acls" />
 
     <!-- The Spring-Data-MongoDB Acl repository -->
     <mongo:repositories base-package="org.fairdatateam.security.acls.dao"/>
