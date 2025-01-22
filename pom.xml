@@ -7,12 +7,61 @@
     <groupId>org.fairdatateam.security</groupId>
     <artifactId>spring-security-acl-mongodb</artifactId>
     <version>${revision}${changelist}</version>
+    <packaging>jar</packaging>
+
+    <name>Spring Security ACL for MongoDB</name>
+    <description>A fork of https://github.com/RovoMe/spring-security-acl-mongodb</description>
+    <url>https://github.com/FAIRDataTeam/spring-security-acl-mongodb</url>
+    <inceptionYear>2017</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://opensource.org/license/apache-2-0</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:https://github.com/FAIRDataTeam/spring-security-acl-mongodb.git</connection>
+        <developerConnection>scm:git:ssh://github.com/FAIRDataTeam/spring-security-acl-mongodb.git</developerConnection>
+        <url>https://github.com/FAIRDataTeam/spring-security-acl-mongodb</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>Roman Vottner</name>
+            <url>https://github.com/RovoMe</url>
+        </developer>
+        <developer>
+            <name>Neelesh</name>
+            <url>https://github.com/neeleshs</url>
+        </developer>
+        <developer>
+            <name>Vojtech Knaisl</name>
+            <url>https://github.com/vknaisl</url>
+        </developer>
+        <developer>
+            <name>Marek Suchánek</name>
+            <url>https://github.com/MarekSuchanek</url>
+        </developer>
+        <developer>
+            <name>dennisvang</name>
+            <url>https://github.com/dennisvang</url>
+        </developer>
+    </developers>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.4.1</version>
     </parent>
+
+    <properties>
+        <plugin.javadoc.version>3.11.2</plugin.javadoc.version>
+        <plugin.source.version>3.3.1</plugin.source.version>
+        <plugin.publishing.version>0.7.0</plugin.publishing.version>
+        <plugin.gpg.version>3.2.7</plugin.gpg.version>
+    </properties>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-acl -->
@@ -60,6 +109,69 @@
                     <!-- https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-6.1-Release-Notes#parameter-name-retention -->
                     <parameters>true</parameters>
                 </configuration>
+            </plugin>
+            <!-- the following plugins are required for publishing to maven central -->
+            <!-- https://central.sonatype.org/publish/publish-portal-maven/ -->
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>${plugin.publishing.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                    <!-- visit https://central.sonatype.com/publishing/deployments to publish manually -->
+                    <!-- also visit that site to debug validation issues -->
+                    <autoPublish>false</autoPublish>
+                </configuration>
+            </plugin>
+            <!-- https://central.sonatype.org/publish/publish-maven/#gpg-signed-components -->
+            <!-- https://maven.apache.org/plugins/maven-gpg-plugin/usage.html -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>${plugin.gpg.version}</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                        <configuration>
+                            <bestPractices>true</bestPractices>
+                            <!-- set gpg.keyname via command line if necessary (default: first found) -->
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- https://central.sonatype.org/publish/publish-maven/#javadoc-and-sources-attachments -->
+            <!-- https://maven.apache.org/plugins/maven-source-plugin/ -->
+            <!-- https://maven.apache.org/plugins/maven-javadoc-plugin/ -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${plugin.source.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${plugin.javadoc.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
