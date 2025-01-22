@@ -126,6 +126,7 @@
             </plugin>
             <!-- https://central.sonatype.org/publish/publish-maven/#gpg-signed-components -->
             <!-- https://maven.apache.org/plugins/maven-gpg-plugin/usage.html -->
+            <!-- for local test  installations use -Dgpg.skip -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
