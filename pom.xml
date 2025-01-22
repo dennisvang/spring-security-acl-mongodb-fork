@@ -6,7 +6,7 @@
 
     <groupId>org.fairdatateam.security</groupId>
     <artifactId>spring-security-acl-mongodb</artifactId>
-    <version>${revision}${changelist}</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
 
     <name>Spring Security ACL for MongoDB</name>
