@@ -1,3 +1,7 @@
+# Background
+
+Background can be found here: https://github.com/spring-projects/spring-security/issues/4484
+
 # Spring Security ACL MongoDB
 
 Spring Security Access Control List (ACL) is a convenient way to grant user-based permission access on domain objects like i.e. a list of books or contacts. Spring Security by default manages ACL via 4 SQL tables which are joined together at lookup time per access on a domain object. While it makes use of caching internally to reduce the roundtrip to the database as much as possible, storing the data in a NoSQL database in a non-flat structure can further help reduce the overall overhead on the database.
@@ -7,7 +11,7 @@ This Spring Security ACL customization uses MongoDB as a database to look up acc
 ```
 {
     "_id" : "a285005a-a892-409a-be86-59877142aa17",
-    "_class" : "org.springframework.security.acls.domain.MongoAcl",
+    "_class" : "org.fairdatateam.security.acls.domain.MongoAcl",
     "className" : "sample.contact.Contact",
     "instanceId" : 6,
     "owner" : {
@@ -141,10 +145,10 @@ On using XML based configuration a sample configuration can look like below
 
     <!-- Make the aclRepository bean instance available to inject -->
     <context:annotation-config />
-    <context:component-scan base-package="org.springframework.security.acls" />
+    <context:component-scan base-package="org.fairdatateam.security.acls" />
 
     <!-- The Spring-Data-MongoDB Acl repository -->
-    <mongo:repositories base-package="org.springframework.security.acls.dao"/>
+    <mongo:repositories base-package="org.fairdatateam.security.acls.dao"/>
 </beans>
 ```
 
@@ -189,7 +193,7 @@ Once the Mongo client is available and the template as well as the repository ar
 	</constructor-arg>
   </bean>
 
-  <bean id="lookupStrategy" class="org.springframework.security.acls.mongodb.BasicLookupStrategy">
+  <bean id="lookupStrategy" class="org.fairdatateam.security.acls.mongodb.BasicLookupStrategy">
 	<constructor-arg ref="mongoTemplate"/>
 	<constructor-arg ref="aclCache"/>
 	<constructor-arg>
@@ -206,7 +210,7 @@ Once the Mongo client is available and the template as well as the repository ar
 	</constructor-arg>
   </bean>
 
-  <bean id="aclService" class="org.springframework.security.acls.mongodb.MongoDBMutableAclService">
+  <bean id="aclService" class="org.fairdatateam.security.acls.mongodb.MongoDBMutableAclService">
 	<constructor-arg ref="lookupStrategy"/>
 	<constructor-arg ref="aclCache"/>
   </bean>

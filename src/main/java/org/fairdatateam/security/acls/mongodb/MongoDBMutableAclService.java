@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.security.acls.mongodb;
+package org.fairdatateam.security.acls.mongodb;
 
-import org.springframework.security.acls.dao.AclRepository;
+import org.fairdatateam.security.acls.dao.AclRepository;
 import org.springframework.security.acls.domain.AccessControlEntryImpl;
-import org.springframework.security.acls.domain.DomainObjectPermission;
+import org.fairdatateam.security.acls.domain.DomainObjectPermission;
 import org.springframework.security.acls.domain.GrantedAuthoritySid;
-import org.springframework.security.acls.domain.MongoAcl;
-import org.springframework.security.acls.domain.MongoSid;
+import org.fairdatateam.security.acls.domain.MongoAcl;
+import org.fairdatateam.security.acls.domain.MongoSid;
 import org.springframework.security.acls.domain.PrincipalSid;
 import org.springframework.security.acls.jdbc.LookupStrategy;
 import org.springframework.security.acls.model.AccessControlEntry;
