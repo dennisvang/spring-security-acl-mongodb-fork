@@ -10,4 +10,4 @@ on:
 
 jobs:
   test:
-    uses: dennisvang/github-workflows/.github/workflows/maven-verify.yml@main
+    uses: FAIRDataTeam/github-workflows/.github/workflows/maven-verify.yml@v1

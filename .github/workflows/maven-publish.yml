@@ -9,5 +9,5 @@ on:
 
 jobs:
   publish:
-    uses: dennisvang/github-workflows/.github/workflows/maven-publish.yml@main
+    uses: FAIRDataTeam/github-workflows/.github/workflows/maven-publish.yml@v1
     secrets: inherit
