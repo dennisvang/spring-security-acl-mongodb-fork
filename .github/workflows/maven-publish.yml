@@ -12,5 +12,5 @@ jobs:
     uses: FAIRDataTeam/github-workflows/.github/workflows/maven-verify.yml@v1
   publish:
     needs: test
-    uses: FAIRDataTeam/github-workflows/.github/workflows/maven-publish.yml@v1
+    uses: dennisvang/github-workflows-fork/.github/workflows/maven-publish.yml@v1
     secrets: inherit
